@@ -1,10 +1,10 @@
 import { Recipe } from '../../api'
-import { Favorite } from './Favorite'
+import { BackNFavorite } from './BackNFavorite'
 import { Search } from './Search'
 
 import theme from '../../styles/theme'
 
-type variants = 'search' | 'favorite' | 'default'
+type variants = 'search' | 'back&favorite' | 'default'
 
 type Props = {
   variant?: variants
@@ -16,10 +16,10 @@ function Nav({ variant, recipe }: Props) {
     case 'search': {
       return <Search />
     }
-    case 'favorite': {
+    case 'back&favorite': {
       return (
         <div className='nav-wrapper'>
-          <Favorite recipe={recipe} />
+          <BackNFavorite recipe={recipe} />
         </div>
       )
     }

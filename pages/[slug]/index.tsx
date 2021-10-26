@@ -34,7 +34,7 @@ const DetailPage: NextPage<DetailPageProps> = ({ recipe }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar variant='favorite' recipe={recipe} />
+      <Navbar variant="back&favorite" recipe={recipe} />
 
       <Container>
         <Image
