@@ -16,6 +16,9 @@ import {
 
 import theme from '../../styles/theme'
 import { Navbar } from '../Navbar'
+import { IconButton } from '../IconButton/BaseButton'
+import { useRouter } from 'next/dist/client/router'
+import { useFavoritesContext } from '../../providers/FavoriteProvider'
 
 type SearchingProps = {
   areNoRecipies: boolean,
@@ -24,6 +27,7 @@ type SearchingProps = {
 }
 
 const Home: NextPage = () => {
+  const router = useRouter()
   const state = useRandomRecipesContext()
   const results = useGlobalSearchResultsContext()
   const isSearching = useGlobalSearchContext()
@@ -51,6 +55,7 @@ const Home: NextPage = () => {
 
       <div className='action-buttons'>
         <SearchButton />
+        <FavoriteButton />
       </div>
 
       <style jsx>{`
@@ -69,6 +74,20 @@ const Home: NextPage = () => {
       `}</style>
     </  >
   )
+}
+
+function FavoriteButton() {
+  const favorites = useFavoritesContext()
+  const router = useRouter()
+
+  if (Object.keys(favorites).length === 0) return null
+
+  return < IconButton
+    icon="heart-filled"
+    aria-label="See my favorites"
+    onClick={() => router.push('/favorite')
+    }
+  />
 }
 
 function SearchingContainer({ isSearching, state, areNoRecipies }: SearchingProps) {
