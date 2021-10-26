@@ -2,10 +2,13 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Container } from '../Container'
 import { Hero } from './Hero'
-import { SearchButton } from '../IconButton'
 import { RecipesGrid } from '../Recipe/Grid'
+import { SearchButton } from '../IconButton'
 
-import { RecipesOfTheDayContexState, useRandomRecipesContext } from '../../providers/RandomRecipeProvider'
+import {
+  RecipesOfTheDayContexState,
+  useRandomRecipesContext
+} from '../../providers/RandomRecipeProvider'
 import {
   useGlobalSearchContext,
   useGlobalSearchResultsContext

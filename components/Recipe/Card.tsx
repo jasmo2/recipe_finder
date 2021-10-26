@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import { Image } from '../Image'
 
 import theme from '../../styles/theme'
 
@@ -10,19 +10,16 @@ interface Props {
 }
 
 export const Card = ({ title, src, url }: Props) => {
-  console.log("TCL ~ file: Card.tsx ~ line 13 ~ Card ~ image", src)
   return (
     <>
       <Link href={url} passHref>
         <a title={title}>
           <h2>{title}</h2>
-          <div className='img-wrapper'>
-            <Image
-              alt={title}
-              layout='fill'
-              src={src}
-            />
-          </div>
+
+          <Image
+            title={title}
+            src={src}
+          />
         </a>
       </Link>
 
@@ -44,19 +41,7 @@ export const Card = ({ title, src, url }: Props) => {
         text-overflow: ellipsis;
         white-space: pre;
       }
-      .img-wrapper {
-        display: block;
-        height: 0;
-        padding-bottom: ${theme.aspectRatios['9-16'] * 100}%;
-        position: relative;
-        width: 100%;
-      }
-    `}</style>
-      <style jsx global>{`
-      .img-wrapper img {
-        object-fit: cover;
-      }
-    `}</style>
+      `}</style>
     </>
   )
 }
