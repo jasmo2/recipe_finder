@@ -1,24 +1,24 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Container } from '../Container'
-import { Hero } from '../Hero'
-import { RecipesGrid } from '../Recipe/Grid'
-import { SearchButton } from '../IconButton'
+import { Container } from './Container'
+import { Hero } from './Hero'
+import { RecipesGrid } from './Recipe/Grid'
+import { SearchButton } from './IconButton'
 
 import {
   RecipesOfTheDayContexState,
   useRandomRecipesContext
-} from '../../providers/RandomRecipeProvider'
+} from '../providers/RandomRecipeProvider'
 import {
   useGlobalSearchContext,
   useGlobalSearchResultsContext
-} from '../../providers/SearchProvider'
+} from '../providers/SearchProvider'
 
-import theme from '../../styles/theme'
-import { Navbar } from '../Navbar'
-import { IconButton } from '../IconButton/BaseButton'
+import theme from '../styles/theme'
+import { Navbar } from './Navbar'
+import { IconButton } from './IconButton/BaseButton'
 import { useRouter } from 'next/dist/client/router'
-import { useFavoritesContext } from '../../providers/FavoriteProvider'
+import { useFavoritesContext } from '../providers/FavoriteProvider'
 
 type SearchingProps = {
   areNoRecipies: boolean,
@@ -27,7 +27,6 @@ type SearchingProps = {
 }
 
 const Home: NextPage = () => {
-  const router = useRouter()
   const state = useRandomRecipesContext()
   const results = useGlobalSearchResultsContext()
   const isSearching = useGlobalSearchContext()
@@ -85,7 +84,7 @@ function FavoriteButton() {
   return < IconButton
     icon="heart-filled"
     aria-label="See my favorites"
-    onClick={() => router.push('/favorite')
+    onClick={() => router.push('/favorites')
     }
   />
 }

@@ -6,7 +6,7 @@ To init with the project locally run.
 - `yarn dev`
 
 ## Checkit online
-Go to ()[]
+Go to [Demo Here]()
 
 ### Though process
 
