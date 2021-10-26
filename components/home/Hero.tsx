@@ -6,14 +6,16 @@ export interface Props {
 export const Hero = ({ text }: Props) => {
   return (
     <>
-      <img className='9-16' aria-hidden="true" />
+      <div className='wrapper' aria-hidden="true" >
+        <img className='inner' aria-hidden="true" />
+      </div>
       <h1>
         {text}
       </h1>
 
 
       <style jsx>{`
-        img: {
+        .wrapper {
           align-items: center;
           background-image: url('/home-background.jpg');
           background-position: center bottom;
@@ -28,11 +30,12 @@ export const Hero = ({ text }: Props) => {
           width: 100%;
         }
 
-        img:after {
+        .inner {
           display: block;
-          background-size: 30%;
-          background: url('/logo.png') no-repeat center;
-          content: '';
+          background-image: url('/logo.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 25%;
           height: 100%;
           left: 50%;
           position: absolute;
@@ -40,6 +43,7 @@ export const Hero = ({ text }: Props) => {
           transform: translate(-50%, -50%);
           width: 100%;
         }
+        
         h1 {
           color: ${theme.colors.grey};
           margin-bottom: ${theme.space.md}px;

@@ -7,12 +7,12 @@ import { Recipe, RecipeApi } from '../api'
 import { useContextFactory } from './ContextFactory'
 
 type Action =
-    | { type: 'refresh'; payload: { meals: Recipe[] } }
+    | { type: 'refresh'; payload: { recipes: Recipe[] } }
     | { type: 'error'; payload: { message: string } }
     | { type: 'loading' }
 
 export type RecipesOfTheDayContexState = {
-    meals: Recipe[]
+    recipes: Recipe[]
     loading?: boolean
     error?: string
     timestamp: number | null
@@ -32,7 +32,7 @@ function recipesReducer(
         case 'refresh': {
             return {
                 ...state,
-                meals: action.payload.meals,
+                recipes: action.payload.recipes,
                 timestamp: +new Date(),
                 error: undefined,
                 loading: false,
@@ -66,7 +66,7 @@ function isDateDifferenceZero(timestamp: number): boolean {
 
 export const RandomRecipesContextProvider: FC = ({ children }) => {
     const [state, dispatch] = useReducer(recipesReducer, {
-        meals: [],
+        recipes: [],
         timestamp: null,
     })
 
@@ -74,25 +74,25 @@ export const RandomRecipesContextProvider: FC = ({ children }) => {
         const {
             error,
             loading,
-            meals,
+            recipes,
             timestamp,
         } = state
         if (
             loading || error ||
-            (timestamp !== null && meals.length && isDateDifferenceZero(timestamp))
+            (timestamp !== null && recipes.length && isDateDifferenceZero(timestamp))
         ) {
             return
         }
 
-        const setRecipesOfTheDay = async () => {
+        const setTodayRecipes = async () => {
             try {
                 dispatch({
                     type: 'loading',
                 })
-                const meals = await fetchTodayRecipes()
+                const recipes = await fetchTodayRecipes()
                 dispatch({
                     type: 'refresh',
-                    payload: { meals },
+                    payload: { recipes },
                 })
             } catch (error) {
                 console.error(error)
@@ -103,7 +103,7 @@ export const RandomRecipesContextProvider: FC = ({ children }) => {
             }
         }
 
-        setRecipesOfTheDay()
+        setTodayRecipes()
     }, [state])
 
     return (

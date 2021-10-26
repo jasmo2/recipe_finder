@@ -1,13 +1,16 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Container } from '../components/Container'
-import { Hero } from '../components/home/hero'
+import { Hero } from '../components/home/Hero'
+import { RecipesGrid } from '../components/Recipe/Grid'
 
 import { RecipesOfTheDayContexState, useRandomRecipesContext } from '../providers/RandomRecipeProvider'
 
 
 const App: NextPage = () => {
   const state = useRandomRecipesContext()
+  console.log("TCL ~ file: index.tsx ~ line 12 ~ state", state)
+
   return (
     <>
       <Head>
@@ -17,6 +20,7 @@ const App: NextPage = () => {
 
       <Container>
         <Hero text={getState(state)} />
+        <RecipesGrid recipes={state.recipes} />
       </Container>
     </>
   )
