@@ -9,7 +9,6 @@ import { RecipesOfTheDayContexState, useRandomRecipesContext } from '../provider
 
 const App: NextPage = () => {
   const state = useRandomRecipesContext()
-  console.log("TCL ~ file: index.tsx ~ line 12 ~ state", state)
 
   return (
     <>
