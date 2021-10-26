@@ -25,3 +25,19 @@ export const getRandomRecipe = async (
 
   return recipeFormatting(recipe)
 }
+
+export const searcRecipeByName = async (
+  name: string,
+  config?: AxiosRequestConfig
+): Promise<Recipe[]> => {
+  const response = await requestClient.get<ResponseApi>(`${Endpoints.Search}`, {
+    params: { s: name },
+    ...config,
+  })
+
+  if (response.data.meals === null) {
+    return []
+  }
+
+  return response.data.meals.map(recipeFormatting)
+}

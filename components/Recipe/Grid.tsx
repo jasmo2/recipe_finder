@@ -25,13 +25,13 @@ export const RecipesGrid = ({ recipes }: Props) => {
       <style jsx>{`
       div {
         display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: 100%;
+        row-gap: ${theme.space.md}px;
       }
       @media screen and (min-width: ${theme.breakpoints.md}px) {
         div{
-          grid-template-columns: auto auto;
           column-gap: ${theme.space.sm}px;
-          row-gap: ${theme.space.md}px;
+          grid-template-columns: auto auto;
         }
       }
       `}</style>
