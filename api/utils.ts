@@ -1,4 +1,4 @@
-import { kebabCase, range } from "lodash"
+import { isNil, isNumber, kebabCase, last, range } from "lodash"
 
 import { Ingredient, Recipe, ResponseObject } from "./recipe.types"
 
@@ -32,4 +32,20 @@ export const extractIngredients = (recipe: ResponseObject): Ingredient[] => {
     }
     return total
   }, result)
+}
+
+export const geIidFromSlug = (slug: string): { id: number } => {
+  const id = last(slug.split("-"))
+
+  if (isNil(id)) {
+    throw Error("invalid slug")
+  }
+
+  const numericId = parseInt(id)
+
+  if (!isNumber(numericId) || isNaN(numericId)) {
+    throw Error(`invalid id: '${id}'`)
+  }
+
+  return { id: numericId }
 }
