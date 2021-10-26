@@ -1,10 +1,13 @@
 import { AppProps } from 'next/app'
 import '../styles/reset.css'
+import { RandomRecipesContextProvider } from '../providers/RandomRecipeProvider'
 
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
-        <Component {...pageProps} />
+        <RandomRecipesContextProvider>
+            <Component {...pageProps} />
+        </RandomRecipesContextProvider>
     )
 }
 
