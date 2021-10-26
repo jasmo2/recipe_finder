@@ -1,5 +1,5 @@
 import { Ingredient } from '../../api'
-import theme from '../../styles/theme'
+import { Li } from './Li'
 
 export interface Props {
   ingredients: Ingredient[]
@@ -11,18 +11,13 @@ export const Ingredients = ({ ingredients }: Props) => {
       <ul>
         {ingredients.map(({ name, measure }, index) => {
           return (
-            <li key={`${name}-${index}`}>
+            <Li key={`${name}-${index}`}>
               {measure} {name}
-            </li>
+            </Li>
           )
         })}
       </ul>
 
-      <style jsx>{`
-        li {
-          padding-bottom: ${theme.space.xs}px;
-        }
-    `}</style>
     </>
   )
 }
