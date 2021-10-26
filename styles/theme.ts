@@ -42,8 +42,7 @@ const theme = {
     heading: 1.25,
   },
   sizes: {
-    navbar: 80,
-    container: 1200,
+    navbar: 65,
   },
 }
 

@@ -7,7 +7,7 @@ export const recipeFormatting = (recipe: ResponseObject): Recipe => ({
 
   image: recipe.strMealThumb,
   ingredients: extractIngredients(recipe),
-  instructions: recipe.strInstructions,
+  instructions: recipe.strInstructions.split(/\r\n/),
   name: recipe.strMeal,
   slug: generateSlug(recipe),
 })

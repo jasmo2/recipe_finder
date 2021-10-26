@@ -69,7 +69,7 @@ export interface Recipe {
 
   image: string
   ingredients: Ingredient[]
-  instructions: string
+  instructions: string[]
   name: string
   slug: string
 }

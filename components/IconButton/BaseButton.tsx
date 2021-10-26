@@ -14,7 +14,7 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 
 export const IconButton = ({ icon, color, ...props }: Props) => {
-  const iconButtonSize = 65
+  const iconButtonSize = theme.sizes.navbar
   return (
     <>
       <button type="button" {...props}>

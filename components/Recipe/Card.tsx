@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Image } from '../Image'
 
 import theme from '../../styles/theme'
+import { H } from '../Typography/H'
 
 interface Props {
   title: string
@@ -14,8 +15,7 @@ export const Card = ({ title, src, url }: Props) => {
     <>
       <Link href={url} passHref>
         <a title={title}>
-          <h2>{title}</h2>
-
+          <H variant='h2'>{title}</H>
           <Image
             title={title}
             src={src}
@@ -31,15 +31,6 @@ export const Card = ({ title, src, url }: Props) => {
         display: flex;
         flex-direction: column;
         text-decoration: none;
-      }
-      h2 {
-        display: block;
-        font-size: ${theme.fontSizes.h2}px;
-        max-width: 80%;
-        overflow: hidden;
-        text-align: center;
-        text-overflow: ellipsis;
-        white-space: pre;
       }
       `}</style>
     </>
