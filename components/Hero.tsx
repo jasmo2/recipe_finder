@@ -1,16 +1,16 @@
-import theme from '../../styles/theme'
+import theme from '../styles/theme'
 export interface Props {
-  text: string
+  title: string
 }
 
-export const Hero = ({ text }: Props) => {
+export const Hero = ({ title }: Props) => {
   return (
     <>
       <div className='wrapper' aria-hidden="true" >
         <img className='inner' aria-hidden="true" />
       </div>
       <h1>
-        {text}
+        {title}
       </h1>
 
 

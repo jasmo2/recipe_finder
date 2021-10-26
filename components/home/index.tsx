@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Container } from '../Container'
-import { Hero } from './Hero'
+import { Hero } from '../Hero'
 import { RecipesGrid } from '../Recipe/Grid'
 import { SearchButton } from '../IconButton'
 
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
 function SearchingContainer({ isSearching, state, areNoRecipies }: SearchingProps) {
   return (<>
     {!isSearching &&
-      <Hero text={getState(state)} />
+      <Hero title={getState(state)} />
     }
     {
       isSearching && areNoRecipies && (
