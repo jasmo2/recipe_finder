@@ -43,6 +43,7 @@ const theme = {
   },
   sizes: {
     navbar: 65,
+    container: 1200,
   },
 }
 
