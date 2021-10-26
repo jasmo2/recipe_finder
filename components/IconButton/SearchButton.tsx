@@ -10,7 +10,7 @@ export const SearchButton = () => {
     <IconButton
       color="red"
       icon="search"
-      aria-label="search a meal"
+      aria-label="search a recipe"
       onClick={() => setGlobalSearchOn(true)}
     />
   )

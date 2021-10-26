@@ -18,7 +18,7 @@ export const Search = () => {
 
   return (
     <>
-      <nav>
+      <nav data-test="search-navbar">
         <div>
           <IconButton
             aria-label="go back"
@@ -27,7 +27,7 @@ export const Search = () => {
           />
           <Input placeholder="I'm craving..." defaultValue="pan" />
         </div>
-      </nav>
+      </nav >
 
       <style jsx>{`
         div { 
