@@ -61,6 +61,7 @@ function recipesReducer(
 
 function isDateDifferenceZero(timestamp: number): boolean {
     const timestampParsed = DateTime.fromJSDate(new Date(timestamp))
+    console.log("TCL ~ file: RandomRecipeProvider.tsx ~ line 64 ~ isDateDifferenceZero ~ timestampParsed", timestampParsed)
     return timestampParsed.diffNow().days === 0
 }
 
@@ -120,20 +121,21 @@ export const useRandomRecipesContext = useContextFactory(
 
 const fetchTodayRecipes = async () => {
     // check if they are already stored
-    const cachedValue: { recipe?: Recipe[]; timestamp?: number } = JSON.parse(
+    const cachedValue: { recipes?: Recipe[]; timestamp?: number } = JSON.parse(
         localStorage.getItem(TODAY_RECIPES) || '{}'
     )
 
+    let numRecipes = 5
+
     if (
         cachedValue &&
-        cachedValue.recipe?.length === 5 &&
+        cachedValue.recipes?.length === numRecipes &&
         cachedValue.timestamp &&
         isDateDifferenceZero(cachedValue.timestamp)
     ) {
-        return cachedValue.recipe
+        return cachedValue.recipes
     }
 
-    let numRecipes = 5
     let recipes: Recipe[] = []
     do {
         recipes = recipes.concat(
