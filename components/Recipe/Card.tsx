@@ -14,7 +14,7 @@ export const Card = ({ title, src, url }: Props) => {
   return (
     <>
       <Link href={url} passHref>
-        <a title={title}>
+        <a title={title} data-test='card'>
           <H variant='h2'>{title}</H>
           <Image
             title={title}
