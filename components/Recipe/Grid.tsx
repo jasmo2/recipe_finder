@@ -31,7 +31,7 @@ export const RecipesGrid = ({ recipes }: Props) => {
       @media screen and (min-width: ${theme.breakpoints.md}px) {
         div{
           column-gap: ${theme.space.sm}px;
-          grid-template-columns: auto auto;
+          grid-template-columns: 50% 50%;
         }
       }
       `}</style>

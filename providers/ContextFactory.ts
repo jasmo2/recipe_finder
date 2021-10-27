@@ -1,9 +1,6 @@
 import { useContext } from "react"
 
-export function useContextFactory<ContextType>(
-  name: string,
-  context: React.Context<ContextType>
-) {
+export function useContextFactory<T>(name: string, context: React.Context<T>) {
   return () => {
     const ctx = useContext(context)
     if (ctx === undefined) {
@@ -11,6 +8,6 @@ export function useContextFactory<ContextType>(
         `use${name}Context must be used withing a ${name}ContextProvider.`
       )
     }
-    return ctx as NonNullable<ContextType>
+    return ctx as NonNullable<T>
   }
 }
