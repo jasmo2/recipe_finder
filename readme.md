@@ -8,7 +8,7 @@ To init with the project locally run.
 ## Checkit online
 Deploy in Vercel
 
-Go to [Demo Here](https://recipe-finder-one.vercel.app/favorites)
+Go to [Demo Here](https://recipe-finder-one.vercel.app/)
 
 ### Though process
 
